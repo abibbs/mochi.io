@@ -6,9 +6,13 @@
     <title>Mochi.io!</title>
   </head>
   <body>
-  <div ng-controller='mochiCntrl'>
-    <h1>Hello World!</h1>
-    <span>{{mochi}}</span>
-  </div>
+      <h1>Mochi.io</h1>
+    <div ng-controller='stockLookup'>
+      <form name='stckLookup' ng-submit='getLookup()'>
+        <input name='company' placeholder='Enter company name'ng-model='search'/>
+        <button type='submit' value='sub'>Search</button>
+      </form>
+      <span></span>
+    </div>
   </body>
 </html>
