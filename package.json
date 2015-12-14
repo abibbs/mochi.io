@@ -2,7 +2,7 @@
   "name": "mochi.io",
   "version": "1.0.0",
   "description": "A financial services app for stock traders.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

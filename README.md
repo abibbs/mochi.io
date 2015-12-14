@@ -25,11 +25,11 @@ Once the project moves into development, the press release can be used as a touc
   Allows users to receive constant stock ticker updates and concisely log their trades, including any Profits or Losses.
 <!-- Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good. -->
 
-#### Problem
+#### Problem:
 Tracking trades in an excel spreadsheet, much like many traders do, gets tedious and tiresome.
 <!-- Describe the problem your product solves. -->
 
-#### Solution
+#### Solution:
 **Mochi.io** solves that by allowing you to track trades in an easy-to-use interface and real-time ticker updates.
 <!-- Describe how your product elegantly solves the problem. -->
 
