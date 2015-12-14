@@ -1,9 +1,14 @@
-<html>
+<html ng-app='mochiApp'>
   <head>
     <script src="/node_modules/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <title>Mochi.io!</title>
   </head>
   <body>
+  <div ng-controller='mochiCntrl'>
     <h1>Hello World!</h1>
+    <span>{{mochi}}</span>
+  </div>
   </body>
 </html>
