@@ -18,11 +18,15 @@
   "homepage": "https://github.com/abibbs/mochi.io",
   "dependencies": {
     "angular": "^1.4.8",
+    "angular-route": "^1.4.8",
     "cors": "^2.7.1",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
     "moment": "^2.10.6",
     "mongodb": "^2.0.52",
     "mongoose": "^4.3.1"
+  },
+  "devDependencies": {
+    "connect-modrewrite": "^0.8.2"
   }
 }

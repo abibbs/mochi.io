@@ -10,11 +10,13 @@ app.use(express.static(__dirname + '/'));
 //   next();
 // });
 // app.use(cors());
-app.get('/', function(req,res) {
-  // var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-  // console.log(moment().format('MMMM Do YYYY, h:mm:ss a') + ': ' + originalUrl + ' served to ' + ip);
-  res.render('index');
-});
+// app.get('/', function(req,res) {
+//   res.render('index');
+// });
+
+// app.get('/trades', function(req,res) {
+//   res.render('trades');
+// });
 
 var server = app.listen(3000, function() {
   var host = server.address().address;

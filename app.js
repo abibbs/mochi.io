@@ -1,6 +1,5 @@
-'use strict';
 // http://dev.markitondemand.com/MODApis/
-angular.module('mochiApp',[])
+var app = angular.module('mochiApp',['ngRoute'])
 
 // .config(['$httpProvider', function($httpProvider) {
 //   $httpProvider.defaults.useXDomain = true;
@@ -12,9 +11,6 @@ angular.module('mochiApp',[])
 // ])
 
 .controller('tickerUpdate',function($scope,$http) {
-  // $scope.lookup;
-  // $scope.search = undefined;
-
   // $http.jsonp('http://dev.markitondemand.com/Api/v2/Lookup/jsonp?jsoncallback=JSON_CALLBACK&input="facebook"')
   // .success(function(res) {
   //   $scope.lookup = res[0];
@@ -46,4 +42,17 @@ angular.module('mochiApp',[])
       console.dir($scope.quote);
     })
   }
+})
+
+.config(function($routeProvider) {
+  // $locationProvider.html5Mode(true);
+
+  $routeProvider
+  .when('/', {
+    templateUrl: 'index.html',
+    controller: 'tickerUpdate'
+  })
+  .when('/trades', {
+    templateUrl: 'trades.html'
+  })
 });

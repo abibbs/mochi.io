@@ -1,11 +1,13 @@
 <html ng-app='mochiApp'>
   <head>
     <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-route/angular-route.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <title>Mochi.io!</title>
   </head>
   <body>
+  <ng-view>
       <h1>Mochi.io</h1>
     <div ng-controller='tickerUpdate'>
     <h4>{{lookup.Name}}</h4>
@@ -42,5 +44,6 @@
         <button type='submit' value='sub'>Search</button>
       </form>
     </div>
+    </ng-view>
   </body>
 </html>
