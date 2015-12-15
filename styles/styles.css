@@ -4,7 +4,9 @@ body {
   /*margin-top: 10px;*/
   font-family: 'Bevan', arial, sans-serif;
   font-size: 16px;
-  background-color: #263249;
+  /*background-color: #263249;*/
+  background-color: #3b5998;
+  /*color: #dfe3ee;*/
   color: #fdfdfe;
   /*color: #eee;*/
   /*color: #fff;*/
@@ -35,6 +37,7 @@ h2 {
 h3 {
   font-family: verdana, arial, sans-serif;
   font-size: 25px;
+  color: #000000;
 }
 
 table {
