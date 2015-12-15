@@ -103,5 +103,6 @@ app.controller('trackTrades',function($scope) {
     $scope.tickerSymbol = '';
     $scope.tradeShares = '';
     $scope.companyName = '';
+    $scope.profitLoss = '';
   };
 });
