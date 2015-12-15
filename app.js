@@ -63,12 +63,23 @@ app.controller('trackTrades',function($scope) {
 
   $scope.getTrade = function() {
     $scope.trade.date = $scope.date;
-    $scope.trade.buyPrice = $scope.buyPrice;
-    $scope.trade.salePrice = $scope.salePrice;
+    // Buy price
+    if ($scope.buyPrice) {
+      $scope.trade.buyPrice = $scope.buyPrice;
+    }
+    // Sale price
+    if ($scope.salePrice) {
+      $scope.trade.salePrice = $scope.salePrice;
+    }
     $scope.trade.tickerSymbol = $scope.tickerSymbol;
+    $scope.trade.sharesAmt = $scope.tradeShares;
     $scope.trade.companyName = $scope.companyName;
-    $scope.trade.profitLoss = $scope.profitLoss;
-    // $scope.trade.push($scope.date)
-    // console.log($scope.trade.date);
+    // $scope.trade.profitLoss = $scope.profitLoss;
+    // Profit amount
+    if (!isNaN($scope.buyPrice) && !isNaN($scope.salePrice) && $scope.profitLoss) {
+      $scope.trade.profitLoss = $scope.tradeShares * $scope.profitLoss;
+    }
+    $scope.data.push($scope.trade);
+    console.log($scope.data);
   }
 });

@@ -57,6 +57,7 @@
             <th>Trade Date</th>
             <th>Trade Buy Price</th>
             <th>Trade Sale Price</th>
+            <th>Shares Bought</th>
             <th>Ticker Symbol</th>
             <th>Company Name</th>
             <th>Profit/Loss</th>
@@ -68,6 +69,7 @@
             <td>{{trade.date | date: 'shortDate'}}</td>
             <td>{{trade.buyPrice | currency: '$'}}</td>
             <td>{{trade.salePrice | currency: '$'}}</td>
+            <td>{{trade.sharesAmt}}</td>
             <td>{{trade.tickerSymbol}}</td>
             <td>{{trade.companyName}}</td>
             <td>{{trade.profitLoss | currency: '$'}}</td>
@@ -79,6 +81,7 @@
         <input name='tradeDt' placeholder='Enter trade date' ng-model='date'/>
         <input name='tradeByPr' placeholder='Enter trades Buy price' ng-model='buyPrice'/>
         <input name='tradeSlePr' placeholder='Enter trades Sale date' ng-model='salePrice'/>
+        <input name='tradeShares' placeholder='Enter amount of Shares' ng-model='tradeShares'/>
         <input name='tradeTckrSym' placeholder='Enter Company ticker' ng-model='tickerSymbol'/>
         <input name='tradeCompNm' placeholder='Enter Company name' ng-model='companyName'/>
         <input name='tradeProfLos' placeholder='Enter profit or loss' ng-model='profitLoss'/>
