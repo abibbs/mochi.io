@@ -50,7 +50,7 @@
     <div ng-controller='trackTrades'>
       <h2>Log Trades</h2>
       <table style='display:block;'>
-      <h3>{{quote.Name}}</h3>
+      <h3>{{tempName}}</h3>
         <span style="font-weight:bold">
         <thead>
           <tr>
@@ -65,19 +65,19 @@
         </thead>
         </span>
         <tbody>
-          <tr>
-            <td>{{trade.date | date: 'shortDate'}}</td>
-            <td>{{trade.buyPrice | currency: '$'}}</td>
-            <td>{{trade.salePrice | currency: '$'}}</td>
-            <td>{{trade.sharesAmt}}</td>
-            <td>{{trade.tickerSymbol}}</td>
-            <td>{{trade.companyName}}</td>
-            <td>{{trade.profitLoss | currency: '$'}}</td>
+          <tr ng-repeat='t in data track by $index' ng-click="remove(item)">
+            <td>{{t.date | date: 'shortDate'}}</td>
+            <td>{{t.buyPrice | currency: '$'}}</td>
+            <td>{{t.salePrice | currency: '$'}}</td>
+            <td>{{t.sharesAmt}}</td>
+            <td>{{t.tickerSymbol}}</td>
+            <td>{{t.companyName}}</td>
+            <td>{{t.profitLoss | currency: '$'}}</td>
           </tr>
         </tbody>
       </table>
       <br>
-      <form name='logTrades' ng-submit='getTrade()'>
+      <form name='logTrades' ng-submit='getTrade(); clearForm()'>
         <input name='tradeDt' placeholder='Enter trade date' ng-model='date'/>
         <input name='tradeByPr' placeholder='Enter trades Buy price' ng-model='buyPrice'/>
         <input name='tradeSlePr' placeholder='Enter trades Sale date' ng-model='salePrice'/>

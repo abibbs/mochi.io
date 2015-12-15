@@ -32,12 +32,15 @@ app.controller('tickerUpdate',function($scope,$http) {
       console.dir($scope.lookup);
       // console.log($scope.mochi);
     })
+    // clear the form
+    $scope.searchLook = '';
   }
 
   $scope.getQuote = function() {
      if ($scope.searchQuote === undefined) {
       $scope.searchQuote = "fb";
     }
+    var temp = $scope.searchQuote;
 
     $http.jsonp('http://dev.markitondemand.com/Api/v2/Quote/jsonp?jsoncallback=JSON_CALLBACK&symbol='+$scope.searchQuote)
       .success(function(res) {
@@ -47,13 +50,15 @@ app.controller('tickerUpdate',function($scope,$http) {
 
     if ($scope.searchQuote) {
       setInterval(function() {
-        $http.jsonp('http://dev.markitondemand.com/Api/v2/Quote/jsonp?jsoncallback=JSON_CALLBACK&symbol='+$scope.searchQuote)
+        $http.jsonp('http://dev.markitondemand.com/Api/v2/Quote/jsonp?jsoncallback=JSON_CALLBACK&symbol='+temp)
         .success(function(res) {
           $scope.quote = res;
           console.dir($scope.quote);
         });
       },6000)
     }
+    // clear the form
+    $scope.searchQuote = '';
   }
 });
 
@@ -62,6 +67,9 @@ app.controller('trackTrades',function($scope) {
   $scope.data = [];
 
   $scope.getTrade = function() {
+    // Save temp copy of company name for UI show
+    $scope.tempName = $scope.companyName;
+
     $scope.trade.date = $scope.date;
     // Buy price
     if ($scope.buyPrice) {
@@ -74,12 +82,26 @@ app.controller('trackTrades',function($scope) {
     $scope.trade.tickerSymbol = $scope.tickerSymbol;
     $scope.trade.sharesAmt = $scope.tradeShares;
     $scope.trade.companyName = $scope.companyName;
-    // $scope.trade.profitLoss = $scope.profitLoss;
     // Profit amount
     if (!isNaN($scope.buyPrice) && !isNaN($scope.salePrice) && $scope.profitLoss) {
       $scope.trade.profitLoss = $scope.tradeShares * $scope.profitLoss;
     }
+    // Push data into array
     $scope.data.push($scope.trade);
     console.log($scope.data);
   }
+
+  $scope.remove = function(item) { 
+    var index = $scope.data.indexOf(item);
+    $scope.data.splice(index, 1);     
+  };
+
+  $scope.clearForm = function() {
+    $scope.date = '';
+    $scope.buyPrice = '';
+    $scope.salePrice = '';
+    $scope.tickerSymbol = '';
+    $scope.tradeShares = '';
+    $scope.companyName = '';
+  };
 });
