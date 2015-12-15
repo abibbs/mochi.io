@@ -7,12 +7,40 @@
   </head>
   <body>
       <h1>Mochi.io</h1>
-    <div ng-controller='stockLookup'>
+    <div ng-controller='tickerUpdate'>
+    <h4>{{lookup.Name}}</h4>
+      ticker: {{lookup.Symbol}} </br>
+      exchange: {{lookup.Exchange}}
       <form name='stckLookup' ng-submit='getLookup()'>
-        <input name='company' placeholder='Enter company name'ng-model='search'/>
+        <input name='company' placeholder='Enter company name'ng-model='searchLook'/>
         <button type='submit' value='sub'>Search</button>
       </form>
-      <span></span>
+      <table style='display:block;'>
+      <h4>{{quote.Name}}</h4>
+        <thead>
+          <tr>
+            <th>Last Price</th>
+            <th>Change</th>
+            <th>Change Percent</th>
+            <th>Change Percent YTD</th>
+            <th>Last Traded</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{quote.LastPrice}}</td>
+            <td>{{quote.Change}}</td>
+            <td>{{quote.ChangePercent}}</td>
+            <td>{{quote.ChangePercentYTD}}</td>
+            <td>{{quote.Timestamp}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </br>
+      <form name='stckQuote' ng-submit='getQuote()'>
+        <input name='company' placeholder='Enter ticker name'ng-model='searchQuote'/>
+        <button type='submit' value='sub'>Search</button>
+      </form>
     </div>
   </body>
 </html>

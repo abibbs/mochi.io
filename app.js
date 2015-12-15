@@ -11,7 +11,7 @@ angular.module('mochiApp',[])
 //   }
 // ])
 
-.controller('stockLookup',function($scope,$http) {
+.controller('tickerUpdate',function($scope,$http) {
   // $scope.lookup;
   // $scope.search = undefined;
 
@@ -23,20 +23,27 @@ angular.module('mochiApp',[])
   // })
 
   $scope.getLookup = function() {
-    if ($scope.search === undefined){
-    $scope.search = "facebook";
+    if ($scope.searchLook === undefined){
+    $scope.searchLook = "facebook";
     }
 
-    $http.jsonp('http://dev.markitondemand.com/Api/v2/Lookup/jsonp?jsoncallback=JSON_CALLBACK&input="'+$scope.search+'"')
+    $http.jsonp('http://dev.markitondemand.com/Api/v2/Lookup/jsonp?jsoncallback=JSON_CALLBACK&input="'+$scope.searchLook+'"')
       .success(function(res) {
       $scope.lookup = res[0];
       console.dir($scope.lookup);
       // console.log($scope.mochi);
     })
-    // console.log($scope.search)
   }
-})
 
-.controller('stockQuote',function($scope,$http) {
+  $scope.getQuote = function() {
+     if ($scope.searchQuote === undefined){
+    $scope.searchQuote = "fb";
+    }
 
+    $http.jsonp('http://dev.markitondemand.com/Api/v2/Quote/jsonp?jsoncallback=JSON_CALLBACK&symbol='+$scope.searchQuote)
+      .success(function(res) {
+      $scope.quote = res;
+      console.dir($scope.quote);
+    })
+  }
 });
