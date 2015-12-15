@@ -1,6 +1,5 @@
-'use strict';
 // http://dev.markitondemand.com/MODApis/
-angular.module('mochiApp',[])
+var app = angular.module('mochiApp',[]);
 
 // .config(['$httpProvider', function($httpProvider) {
 //   $httpProvider.defaults.useXDomain = true;
@@ -11,7 +10,7 @@ angular.module('mochiApp',[])
 //   }
 // ])
 
-.controller('tickerUpdate',function($scope,$http) {
+app.controller('tickerUpdate',function($scope,$http) {
   // $scope.lookup;
   // $scope.search = undefined;
 
@@ -45,5 +44,15 @@ angular.module('mochiApp',[])
       $scope.quote = res;
       console.dir($scope.quote);
     })
+
+    if ($scope.searchQuote) {
+      setInterval(function() {
+        $http.jsonp('http://dev.markitondemand.com/Api/v2/Quote/jsonp?jsoncallback=JSON_CALLBACK&symbol='+$scope.searchQuote)
+        .success(function(res) {
+          $scope.quote = res;
+          console.dir($scope.quote);
+        });
+      },6000)
+    }
   }
 });

@@ -18,15 +18,16 @@ a {
 
 h1 {
   font-style: italic;
-  font-size: 40px;
-  margin-bottom: 5px;
+  font-size: 60px;
+  margin-bottom: -5px;
   margin-top: 10px;
   font-family: verdana, arial, sans-serif;
   color: #ff522a;
 }
 
-h4 {
+h3 {
   font-family: verdana, arial, sans-serif;
+  font-size: 30px;
 }
 
 table {
@@ -38,4 +39,8 @@ td, th {
   border: 1px solid #1a1a1a;
   padding: 0.5rem;
   text-align: left;
+}
+
+.tickerLookup {
+  margin-top: 20px;
 }

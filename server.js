@@ -1,7 +1,7 @@
 var express = require('express');
 var moment = require('moment');
-var app = express();
 var cors = require('cors');
+var app = express();
 
 app.use(express.static(__dirname + '/'));
 // app.use(function(req, res, next) {

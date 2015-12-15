@@ -6,11 +6,13 @@
     <title>Mochi.io!</title>
   </head>
   <body>
-      <h1>Mochi.io</h1>
-    <div ng-controller='tickerUpdate'>
-    <h4>{{lookup.Name}}</h4>
-      ticker: {{lookup.Symbol}} </br>
-      exchange: {{lookup.Exchange}}
+      <h1>Mochi<span style='color: #fff'>.</span>io</h1>
+      <div ng-controller='tickerUpdate'>
+      <div class='tickerLookup' ng-show='lookup'>
+      <h4>{{lookup.Name}}</h4>
+        <span style="font-weight:bold">ticker:</span> {{lookup.Symbol}} </br>
+        <span style="font-weight:bold">exchange:</span> {{lookup.Exchange}}
+      </div>
       <form name='stckLookup' ng-submit='getLookup()'>
         <input name='company' placeholder='Enter company name'ng-model='searchLook'/>
         <button type='submit' value='sub'>Search</button>
