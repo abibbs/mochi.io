@@ -22,8 +22,8 @@ app.controller('tickerUpdate',function($scope,$http) {
   // })
 
   $scope.getLookup = function() {
-    if ($scope.searchLook === undefined){
-    $scope.searchLook = "facebook";
+    if ($scope.searchLook === undefined) {
+      $scope.searchLook = "facebook";
     }
 
     $http.jsonp('http://dev.markitondemand.com/Api/v2/Lookup/jsonp?jsoncallback=JSON_CALLBACK&input="'+$scope.searchLook+'"')
@@ -35,8 +35,8 @@ app.controller('tickerUpdate',function($scope,$http) {
   }
 
   $scope.getQuote = function() {
-     if ($scope.searchQuote === undefined){
-    $scope.searchQuote = "fb";
+     if ($scope.searchQuote === undefined) {
+      $scope.searchQuote = "fb";
     }
 
     $http.jsonp('http://dev.markitondemand.com/Api/v2/Quote/jsonp?jsoncallback=JSON_CALLBACK&symbol='+$scope.searchQuote)
@@ -54,5 +54,21 @@ app.controller('tickerUpdate',function($scope,$http) {
         });
       },6000)
     }
+  }
+});
+
+app.controller('trackTrades',function($scope) {
+  $scope.trade = {};
+  $scope.data = [];
+
+  $scope.getTrade = function() {
+    $scope.trade.date = $scope.date;
+    $scope.trade.buyPrice = $scope.buyPrice;
+    $scope.trade.salePrice = $scope.salePrice;
+    $scope.trade.tickerSymbol = $scope.tickerSymbol;
+    $scope.trade.companyName = $scope.companyName;
+    $scope.trade.profitLoss = $scope.profitLoss;
+    // $scope.trade.push($scope.date)
+    // console.log($scope.trade.date);
   }
 });

@@ -8,9 +8,10 @@
   <body>
       <h1>Mochi<span style='color: #fff'>.</span>io</h1>
       <div ng-controller='tickerUpdate'>
+      <h2>Get Stock Data</h2>
       <div class='tickerLookup' ng-show='lookup'>
       <h3>{{lookup.Name}}</h3>
-        <span style="font-weight:bold">ticker:</span> {{lookup.Symbol}} </br>
+        <span style="font-weight:bold">ticker:</span> {{lookup.Symbol}} <br>
         <span style="font-weight:bold">exchange:</span> {{lookup.Exchange}}
       </div>
       <form name='stckLookup' ng-submit='getLookup()'>
@@ -20,6 +21,7 @@
       <table style='display:block;'>
       <h3>{{quote.Name}}</h3>
         <thead>
+        <span style="font-weight:bold">
           <tr>
             <th>Last Price</th>
             <th>Change</th>
@@ -28,6 +30,7 @@
             <th>Last Traded</th>
           </tr>
         </thead>
+        </span>
         <tbody>
           <tr>
             <td>{{quote.LastPrice}}</td>
@@ -38,10 +41,48 @@
           </tr>
         </tbody>
       </table>
-      </br>
+      <br>
       <form name='stckQuote' ng-submit='getQuote()'>
-        <input name='company' placeholder='Enter ticker name'ng-model='searchQuote'/>
+        <input name='company' placeholder='Enter ticker name' ng-model='searchQuote'/>
         <button type='submit' value='sub'>Search</button>
+      </form>
+    </div>
+    <div ng-controller='trackTrades'>
+      <h2>Log Trades</h2>
+      <table style='display:block;'>
+      <h3>{{quote.Name}}</h3>
+        <span style="font-weight:bold">
+        <thead>
+          <tr>
+            <th>Trade Date</th>
+            <th>Trade Buy Price</th>
+            <th>Trade Sale Price</th>
+            <th>Ticker Symbol</th>
+            <th>Company Name</th>
+            <th>Profit/Loss</th>
+          </tr>
+        </thead>
+        </span>
+        <tbody>
+          <tr>
+            <td>{{trade.date | date: 'shortDate'}}</td>
+            <td>{{trade.buyPrice | currency: '$'}}</td>
+            <td>{{trade.salePrice | currency: '$'}}</td>
+            <td>{{trade.tickerSymbol}}</td>
+            <td>{{trade.companyName}}</td>
+            <td>{{trade.profitLoss | currency: '$'}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <form name='logTrades' ng-submit='getTrade()'>
+        <input name='tradeDt' placeholder='Enter trade date' ng-model='date'/>
+        <input name='tradeByPr' placeholder='Enter trades Buy price' ng-model='buyPrice'/>
+        <input name='tradeSlePr' placeholder='Enter trades Sale date' ng-model='salePrice'/>
+        <input name='tradeTckrSym' placeholder='Enter Company ticker' ng-model='tickerSymbol'/>
+        <input name='tradeCompNm' placeholder='Enter Company name' ng-model='companyName'/>
+        <input name='tradeProfLos' placeholder='Enter profit or loss' ng-model='profitLoss'/>
+        <button type='submit' value='sub'>Submit</button>
       </form>
     </div>
   </body>

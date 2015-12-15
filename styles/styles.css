@@ -5,8 +5,9 @@ body {
   font-family: 'Bevan', arial, sans-serif;
   font-size: 16px;
   background-color: #263249;
+  color: #fdfdfe;
   /*color: #eee;*/
-  color: #fff;
+  /*color: #fff;*/
   /*margin-left: 10px;*/
   text-align: center;
 }
@@ -26,9 +27,15 @@ h1 {
   color: #ff522a;
 }
 
+h2 {
+  font-family: verdana, arial, sans-serif;
+  font-size: 35px;
+}
+
 h3 {
   font-family: verdana, arial, sans-serif;
   font-size: 25px;
+  color: #000000;
 }
 
 table {
