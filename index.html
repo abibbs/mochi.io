@@ -15,8 +15,8 @@
         <span style="font-weight:bold">exchange:</span> {{lookup.Exchange}}
       </div>
       <form name='stckLookup' ng-submit='getLookup()'>
-        <input name='company' placeholder='Enter company name'ng-model='searchLook'/>
-        <button type='submit' value='sub'>Search</button>
+        <input name='company' class='input-sm' placeholder='Enter company name'ng-model='searchLook'/>
+        <button type='submit' class ='btn-primary' value='sub'>Search</button>
       </form>
       <table style='display:block;'>
       <h3>{{quote.Name}}</h3>
@@ -43,8 +43,8 @@
       </table>
       <br>
       <form name='stckQuote' ng-submit='getQuote()'>
-        <input name='company' placeholder='Enter ticker name' ng-model='searchQuote'/>
-        <button type='submit' value='sub'>Search</button>
+        <input name='company' class='input-sm' placeholder='Enter ticker name' ng-model='searchQuote'/>
+        <button type='submit' class ='btn-primary' value='sub'>Search</button>
       </form>
     </div>
     <div ng-controller='trackTrades'>
@@ -85,7 +85,7 @@
         <input name='tradeTckrSym' placeholder='Enter Company ticker' ng-model='tickerSymbol'/>
         <input name='tradeCompNm' placeholder='Enter Company name' ng-model='companyName'/>
         <input name='tradeProfLos' placeholder='Enter share profit/loss' ng-model='profitLoss'/>
-        <button type='submit' value='sub'>Submit</button>
+        <button type='submit' class ='btn-primary' value='sub'>Submit</button>
       </form>
     </div>
   </body>
