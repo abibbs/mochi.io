@@ -2,11 +2,11 @@
   <head>
     <script src="/node_modules/angular/angular.js"></script>
     <script src="app.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
     <title>Mochi.io!</title>
   </head>
   <body>
-      <h1>Mochi<span style='color: #fff'>.</span>io</h1>
+      <h1>Mochi<span style='color: #ff522a'>.</span>io</h1>
       <div ng-controller='tickerUpdate'>
       <h2>Get Stock Data</h2>
       <div class='tickerLookup' ng-show='lookup'>
@@ -18,7 +18,7 @@
         <input name='company' class='input-sm' placeholder='Enter company name'ng-model='searchLook'/>
         <button type='submit' class ='btn-primary' value='sub'>Search</button>
       </form>
-      <table style='display:block;'>
+      <table class="table table-striped table-hover ">
       <h3>{{quote.Name}}</h3>
         <thead>
         <span style="font-weight:bold">
@@ -49,7 +49,7 @@
     </div>
     <div ng-controller='trackTrades'>
       <h2>Log Trades</h2>
-      <table style='display:block;'>
+      <table class="table table-striped table-hover ">
       <h3>{{tempName}}</h3>
         <span style="font-weight:bold">
         <thead>
@@ -78,12 +78,12 @@
       </table>
       <br>
       <form name='logTrades' ng-submit='getTrade(); clearForm()'>
-        <input name='tradeDt' placeholder='Enter trade date' ng-model='date'/>
+        <input name='tradeDt' placeholder='Enter trade date' ng-model='date'/><br>
         <input name='tradeByPr' placeholder='Enter trades Buy price' ng-model='buyPrice'/>
-        <input name='tradeSlePr' placeholder='Enter trades Sale date' ng-model='salePrice'/>
+        <input name='tradeSlePr' placeholder='Enter trades Sale date' ng-model='salePrice'/><br>
         <input name='tradeShares' placeholder='Enter amount of Shares' ng-model='tradeShares'/>
         <input name='tradeTckrSym' placeholder='Enter Company ticker' ng-model='tickerSymbol'/>
-        <input name='tradeCompNm' placeholder='Enter Company name' ng-model='companyName'/>
+        <input name='tradeCompNm' placeholder='Enter Company name' ng-model='companyName'/><br>
         <input name='tradeProfLos' placeholder='Enter share profit/loss' ng-model='profitLoss'/>
         <button type='submit' class ='btn-primary' value='sub'>Submit</button>
       </form>

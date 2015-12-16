@@ -20,6 +20,13 @@ app.controller('tickerUpdate',function($scope,$http) {
   //   console.dir($scope.lookup);
   //   // console.log($scope.mochi);
   // })
+  var kirbyFn = function() {
+    var kirby = ["Q('-'Q)","O-('-'Q)"];
+    for (var i = 0; i < 2; i++) {
+      console.log(kirby[i])
+    }
+    return;
+  }
 
   $scope.getLookup = function() {
     if ($scope.searchLook === undefined) {
@@ -54,6 +61,7 @@ app.controller('tickerUpdate',function($scope,$http) {
         .success(function(res) {
           $scope.quote = res;
           console.dir($scope.quote);
+          console.log(kirbyFn());
         });
       },6000)
     }
